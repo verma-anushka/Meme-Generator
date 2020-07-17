@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Header from "./Header";
 import DisplayMeme from "./DisplayMeme";
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Header />
         <DisplayMeme allMemeImages={this.state.allMemeImages} />
       </div>
     );

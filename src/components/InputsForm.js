@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 class InputsForm extends React.Component {
   constructor(props) {
@@ -22,26 +23,40 @@ class InputsForm extends React.Component {
 
   render() {
     return (
-      <div className="ui segment">
-        <form className="ui form">
-          <label>Enter top text</label>
-          <input
-            type="text"
-            name="topText"
-            value={this.state.topText}
-            onChange={this.onInputChange}
-          />
-          <label>Enter bottom text</label>
-          <input
-            type="text"
-            name="bottomText"
-            value={this.state.bottomText}
-            onChange={this.onInputChange}
-          />
+      <Container>
+        <Form className="mt-4">
+          <Row>
+            <Col s={12} md={6} lg={6}>
+              <Form.Group controlId="formTopText">
+                <Form.Label>Enter top text:</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="topText"
+                  value={this.state.topText}
+                  onChange={this.onInputChange}
+                />
+              </Form.Group>
+            </Col>
+            <Col s={12} md={6} lg={6}>
+              <Form.Group controlId="formBottomText">
+                <Form.Label>Enter bottom text:</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="bottomText"
+                  value={this.state.bottomText}
+                  onChange={this.onInputChange}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
 
-          <button onClick={this.onFormSubmit}>Generate</button>
-        </form>
-      </div>
+          <div className="text-center">
+            <Button variant="primary" type="submit" onClick={this.onFormSubmit}>
+              Submit
+            </Button>
+          </div>
+        </Form>
+      </Container>
     );
   }
 }
